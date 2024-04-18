@@ -1,0 +1,19 @@
+extends base
+
+block content 
+    div
+        video#preview
+        button#actionBtn Start Recording
+    if errorMessage 
+        span=errorMessage
+    form(method="POST")
+        label(for="video") Video File 
+        input(type="file", accept="video/*", required, id="video", name="video")
+        label(for="thumb") Thumbnail File 
+        input(type="file", accept="image/*", required, id="thumbnail", name="thumbnail")
+        input(placeholder="Make titie", required, type="text", name="title", maxLength=80)
+        input(placeholder="Description", required, typt="text", name="description", minLength=20)
+        input(placeholder="Hashtags, separated by comma." required, type="text", name="hashtags")
+        input(type="submit", value="Upload Video")
+block scripts 
+    script(src="/assets/js/recorder.js")
